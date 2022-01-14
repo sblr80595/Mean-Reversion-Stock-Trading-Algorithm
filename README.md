@@ -1,0 +1,2 @@
+# Mean-Reversion-Stock-Trading-Algorithm
+Python program that compares the profit made with the traditional Buy and Hold strategy with a Mean reversion/Moving Average trading algorithm to conclude which option would have being superior given the outcome of the two. In the end it showed that for the specific stock in question, Blackberry Ltd (BB), Buying and holding would be the most profitable strategy.
