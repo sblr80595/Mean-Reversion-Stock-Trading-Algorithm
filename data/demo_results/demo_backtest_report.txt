@@ -1,0 +1,39 @@
+DEMO MODE - SYNTHETIC DATA RESULTS
+==================================================
+Note: These results are based on synthetic data
+and are for demonstration purposes only.
+
+============================================================
+MEAN REVERSION STRATEGY BACKTEST REPORT
+============================================================
+
+PORTFOLIO SUMMARY:
+Average Strategy Return: 15.45%
+Average Buy & Hold Return: 25.09%
+Average Excess Return: -9.64%
+Number of Stocks: 49
+
+TOP 5 STRATEGY PERFORMERS:
+BAJFINANCE: 135.62%
+UPL: 128.43%
+KOTAKBANK: 122.97%
+DRREDDY: 97.45%
+NTPC: 87.90%
+
+BOTTOM 5 STRATEGY PERFORMERS:
+TATAMOTORS: -54.05%
+JSWSTEEL: -44.47%
+HDFCBANK: -32.98%
+HINDUNILVR: -32.47%
+SBILIFE: -30.07%
+
+RISK METRICS:
+Average Strategy Volatility: 31.58%
+Average Buy & Hold Volatility: 31.61%
+Average Strategy Sharpe Ratio: 0.13
+Average Buy & Hold Sharpe Ratio: 0.22
+Average Strategy Max Drawdown: -36.03%
+Average Buy & Hold Max Drawdown: -38.11%
+
+WIN RATE:
+Stocks with positive excess return: 24/49 (49.0%)
