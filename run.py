@@ -14,13 +14,15 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python run.py                    # Run main algorithm
-  python run.py --quick-test      # Run quick test
-  python run.py --demo            # Run with synthetic data (no API required)
-  python run.py --live            # Run live trading system
-  python run.py --backtest        # Run backtesting only
-  python run.py --config          # Show configuration
-  python run.py --setup           # Setup and verify installation
+  python run.py                       # Run main algorithm
+  python run.py --quick-test         # Run quick test
+  python run.py --demo               # Run with synthetic data (no API required)
+  python run.py --paper-trading      # Live paper trading with real data
+  python run.py --paper-demo         # Paper trading with demo data
+  python run.py --live               # Run live trading system
+  python run.py --backtest           # Run backtesting only
+  python run.py --config             # Show configuration
+  python run.py --setup              # Setup and verify installation
         """
     )
     
@@ -49,15 +51,27 @@ Examples:
     )
     
     parser.add_argument(
-        '--setup',
-        action='store_true',
-        help='Setup and verify installation'
-    )
-    
-    parser.add_argument(
         '--demo',
         action='store_true',
         help='Run with demo/synthetic data (no API required)'
+    )
+    
+    parser.add_argument(
+        '--paper-trading',
+        action='store_true',
+        help='Run live paper trading with real market data'
+    )
+    
+    parser.add_argument(
+        '--paper-demo',
+        action='store_true',
+        help='Run paper trading with demo data'
+    )
+    
+    parser.add_argument(
+        '--setup',
+        action='store_true',
+        help='Setup and verify installation'
     )
     
     args = parser.parse_args()
@@ -77,6 +91,10 @@ Examples:
         run_setup()
     elif args.demo:
         run_demo_mode()
+    elif args.paper_trading:
+        run_paper_trading()
+    elif args.paper_demo:
+        run_paper_demo()
     elif args.config:
         show_config()
     elif args.live:
@@ -180,6 +198,36 @@ def show_config():
         print(f"  - Token ID: {'Configured' if dhan_cfg.DHAN_CLIENT_CODE != 'your_client_code' else 'Not configured'}")
     except ImportError as e:
         print(f"Error loading Dhan config: {e}")
+
+def run_paper_trading():
+    """Run live paper trading with real market data"""
+    print("=" * 60)
+    print("STARTING LIVE PAPER TRADING")
+    print("=" * 60)
+    print("Using real market data for paper trading")
+    print("No real money will be used - this is simulation only")
+    print()
+    
+    try:
+        from src.live_paper_trading import main
+        main()
+    except Exception as e:
+        print(f"Error running paper trading: {e}")
+        print("Try installing required packages: pip install schedule")
+
+def run_paper_demo():
+    """Run paper trading with demo data"""
+    print("=" * 60)
+    print("PAPER TRADING WITH DEMO DATA")
+    print("=" * 60)
+    print("Testing paper trading system with synthetic data")
+    print()
+    
+    try:
+        from src.paper_trading_system import main
+        main()
+    except Exception as e:
+        print(f"Error running paper demo: {e}")
 
 def run_demo_mode():
     """Run with demo/synthetic data"""
